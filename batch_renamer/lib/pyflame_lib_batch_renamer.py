@@ -108,8 +108,6 @@ SCRIPT_PATH = LIB_PATH.rsplit("/", 1)[0]
 
 SHARED_FILE_SEQUENCE_PATH = '/opt/Autodesk/shared/export/presets/file_sequence'
 SHARED_MOVIE_EXPORT_PATH = '/opt/Autodesk/shared/export/presets/movie_file'
-PROJECT_FILE_SEQUENCE_PATH = os.path.join('/opt/Autodesk/', f'{flame.projects.current_project.name}', 'export/presets/flame/file_sequence')
-PROJECT_MOVIE_EXPORT_PATH = os.path.join('/opt/Autodesk/', f'{flame.projects.current_project.name}', 'export/presets/flame/movie_file')
 
 #---------------------------------------------
 # [PyFlame Enums]
@@ -3114,6 +3112,9 @@ class _PyFlame:
 
         print('Getting Export Presets:\n')
 
+        project_file_sequence_path = os.path.join('/opt/Autodesk/', f'{flame.projects.current_project.name}', 'export/presets/flame/file_sequence')
+        project_movie_export_path = os.path.join('/opt/Autodesk/', f'{flame.projects.current_project.name}', 'export/presets/flame/movie_file')
+
         # Get Shared File Sequence Export Presets
         if os.path.isdir(SHARED_FILE_SEQUENCE_PATH):
             shared_file_sequence_export_presets = [f'Shared: File Sequence: {p[:-4]}' for p in os.listdir(SHARED_FILE_SEQUENCE_PATH) if p.endswith('.xml')]
@@ -3129,18 +3130,18 @@ class _PyFlame:
             print('Shared Movie Export Presets path does not exist:', SHARED_MOVIE_EXPORT_PATH, '\n')
 
         # Get Project File Sequence Export Presets
-        if os.path.isdir(PROJECT_FILE_SEQUENCE_PATH):
-            project_file_sequence_export_presets = [f'Project: File Sequence: {p[:-4]}' for p in os.listdir(PROJECT_FILE_SEQUENCE_PATH) if p.endswith('.xml')]
+        if os.path.isdir(project_file_sequence_path):
+            project_file_sequence_export_presets = [f'Project: File Sequence: {p[:-4]}' for p in os.listdir(project_file_sequence_path) if p.endswith('.xml')]
         else:
             project_file_sequence_export_presets = []
-            print('Project File Sequence Export Presets path does not exist:', PROJECT_FILE_SEQUENCE_PATH, '\n')
+            print('Project File Sequence Export Presets path does not exist:', project_file_sequence_path, '\n')
 
         # Get Project Movie Export Presets
-        if os.path.isdir(PROJECT_MOVIE_EXPORT_PATH):
-            project_movie_export_presets = [f'Project: Movie: {p[:-4]}' for p in os.listdir(PROJECT_MOVIE_EXPORT_PATH) if p.endswith('.xml')]
+        if os.path.isdir(project_movie_export_path):
+            project_movie_export_presets = [f'Project: Movie: {p[:-4]}' for p in os.listdir(project_movie_export_path) if p.endswith('.xml')]
         else:
             project_movie_export_presets = []
-            print('Project Movie Export Presets path does not exist:', PROJECT_MOVIE_EXPORT_PATH, '\n')
+            print('Project Movie Export Presets path does not exist:', project_movie_export_path, '\n')
 
         # Combine all export presets
         export_presets = shared_file_sequence_export_presets + shared_movie_export_presets + project_file_sequence_export_presets + project_movie_export_presets
@@ -3203,6 +3204,9 @@ class _PyFlame:
         if not isinstance(export_preset_name, str):
             pyflame.raise_type_error('pyflame.convert_export_preset_name_to_path', 'export_preset_name', 'str', export_preset_name)
 
+        project_file_sequence_path = os.path.join('/opt/Autodesk/', f'{flame.projects.current_project.name}', 'export/presets/flame/file_sequence')
+        project_movie_export_path = os.path.join('/opt/Autodesk/', f'{flame.projects.current_project.name}', 'export/presets/flame/movie_file')
+
         # Convert export preset name to path
         if export_preset_name == '':
             return ''
@@ -3213,11 +3217,11 @@ class _PyFlame:
             print('Shared: Movie:', os.path.join(SHARED_MOVIE_EXPORT_PATH, f'{export_preset_name.split(": ")[2]}.xml'))
             return os.path.join(SHARED_MOVIE_EXPORT_PATH, f'{export_preset_name.split(": ")[2]}.xml')
         elif 'Project: File Sequence:' in export_preset_name:
-            print('Project: File Sequence:', os.path.join(PROJECT_FILE_SEQUENCE_PATH, f'{export_preset_name.split(": ")[2]}.xml'))
-            return os.path.join(PROJECT_FILE_SEQUENCE_PATH, f'{export_preset_name.split(": ")[2]}.xml')
+            print('Project: File Sequence:', os.path.join(project_file_sequence_path, f'{export_preset_name.split(": ")[2]}.xml'))
+            return os.path.join(project_file_sequence_path, f'{export_preset_name.split(": ")[2]}.xml')
         elif 'Project: Movie:' in export_preset_name:
-            print('Project: Movie:', os.path.join(PROJECT_MOVIE_EXPORT_PATH, f'{export_preset_name.split(": ")[2]}.xml'))
-            return os.path.join(PROJECT_MOVIE_EXPORT_PATH, f'{export_preset_name.split(":")[2]}.xml')
+            print('Project: Movie:', os.path.join(project_movie_export_path, f'{export_preset_name.split(": ")[2]}.xml'))
+            return os.path.join(project_movie_export_path, f'{export_preset_name.split(":")[2]}.xml')
         else:
             return ''
 
