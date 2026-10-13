@@ -1244,10 +1244,10 @@
     "Script Version": "0.3.3",
     "Flame Version": "2023",
     "Maximum Flame Version": "Latest",
-    "Author": "unknown",
+    "Author": "Kyle Obley (info@kyleobley.com)",
     "Creation Date": "02.05.25",
     "Update Date": "02.05.25",
-    "Description": "Script Name: Social Versions\nScript Version: 0.3.3\nFlame Version: 2023\nAuthor: Kyle Obley (info@kyleobley.com)\nCreation Date: 02.05.25\nModified Date: 02.28.25\n\nDescription:\n\nCreates social timelines based on other, selected timelines.\n\nChange Log:\nv0.3.3  added in_point and out_point to new sequence. fixed a color thing.\nv0.3.2  check for original sequence colour before setting new sequence colour.\nv0.3.1  Added 'colour = sequence.colour' so new sequences match the color of the original.\nv0.2.1  Add Flush Renders. Reversed width and height.\nv0.1:   Initial release."
+    "Description": "Script Name: Social Versions\nScript Version: 0.3.3\nFlame Version: 2023\nWritten by: Kyle Obley (info@kyleobley.com)\nCreation Date: 02.05.25\nModified Date: 02.28.25\n\nDescription:\n\nCreates social timelines based on other, selected timelines.\n\nChange Log:\nv0.3.3  added in_point and out_point to new sequence. fixed a color thing.\nv0.3.2  check for original sequence colour before setting new sequence colour.\nv0.3.1  Added 'colour = sequence.colour' so new sequences match the color of the original.\nv0.2.1  Add Flush Renders. Reversed width and height.\nv0.1:   Initial release."
   },
   {
     "Script Name": "srt to xml",
