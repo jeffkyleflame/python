@@ -284,10 +284,10 @@
     "Script Version": "0.5",
     "Flame Version": "2021",
     "Maximum Flame Version": "Latest",
-    "Author": "unknown",
+    "Author": "Kyle Obley (info@kyleobley.com)",
     "Creation Date": "07.05.23",
     "Update Date": "07.05.23",
-    "Description": "Script Name: Connect Cryptomatte\nScript Version: 0.5\nFlame Version: 2021\n\nCreation date: 07.05.23\nModified date: 02.26.24\n\nAuthor: Kyle Obley (info@kyleobley.com)\n\nDescription:\n\nCreates and connects a Cryptomatte node to a read file node if it's a cryptomatte.\n\nChange Log:\n\nv0.5: Completely changed logic to use node.output_sockets which removes the need to try channels, etc.\nThis hopefully makes the script bulletproof.\n\nv0.4: Added support for channels coming out without the filename within the channel itself.\n\nv0.3: Added support for Houdini's Object ID naming\n\nv0.2: Added logic for different channel names and support for CryptoMesh\n\nv0.1: Initial Release"
+    "Description": "Script Name: Connect Cryptomatte\nScript Version: 0.5\nFlame Version: 2021\n\nCreation date: 07.05.23\nModified date: 02.26.24\n\nWritten By: Kyle Obley (info@kyleobley.com)\n\nDescription:\n\nCreates and connects a Cryptomatte node to a read file node if it's a cryptomatte.\n\nChange Log:\n\nv0.5: Completely changed logic to use node.output_sockets which removes the need to try channels, etc.\nThis hopefully makes the script bulletproof.\n\nv0.4: Added support for channels coming out without the filename within the channel itself.\n\nv0.3: Added support for Houdini's Object ID naming\n\nv0.2: Added logic for different channel names and support for CryptoMesh\n\nv0.1: Initial Release"
   },
   {
     "Script Name": "continue folder",
