@@ -44,17 +44,17 @@ Copy script into /opt/Autodesk/shared/python/logik_portal
 - Added Open in Finder button to Tools tab. When checked, the download folder opens when a download is complete.
 - Moved Tools tab next to Python Scripts tab.
 - Fixed - Tools tab listed source code zips that shouldn't be downloaded. The Files menu now only shows the
-- downloads listed on the Logik Portal.
+  downloads listed on the Logik Portal.
 - Fixed - Headings in Tools and Pixel Expressions descriptions looked squished.
 - Added Update button to Python Scripts tab. Opens a list of installed scripts with newer versions on the Logik
 - Portal. Update the selected scripts (multiple selection allowed) or Update All. The button is only enabled
-- when installed scripts have updates.
+  when installed scripts have updates.
 - Installed python scripts with a newer version that works with the current version of Flame available on the
 - Logik Portal are now highlighted in yellow.
 - Added ability to preserve existing settings when updating a python script. When installing the new version a
-- prompt will ask to update or erase the existing script. Updating will only work when a script is the same
-- major version. For example, v1.0.0 can be updated to v1.1.0, but v1.0.0 cannot be updated to v2.0.0. Updating
-- to a new major version will erase the existing script and all saved settings and extra files.
+  prompt will ask to update or erase the existing script. Updating will only work when a script is the same
+  major version. For example, v1.0.0 can be updated to v1.1.0, but v1.0.0 cannot be updated to v2.0.0. Updating
+  to a new major version will erase the existing script and all saved settings and extra files.
 - Added Tools tab. Download tools and GitHub releases from logik-portal.com/misc.
 - Updated to PyFlameLib v5.5.3 - Fixes screenGeometry error with Flame 2027.2.
 - Fixed - Can't connect to internet error in Flame 2027.2.
