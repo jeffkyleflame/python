@@ -1,10 +1,10 @@
 """
 Script Name: Version Upper
 Script Version: 3.0.0
-Flame Version: 2020
+Flame Version: 2022
 Written by: John Geehreng
 Creation Date: 06.06.20
-Update Date: 07.24.26
+Update Date: 10.20.26
 
 Description:
 
@@ -50,7 +50,7 @@ Config:
 
 Updates:
 
-    v3.0.0 07.24.26
+    v3.0.0 10.20.26
         - Added a Preferences window. The version prefix is now a setting instead of a hard
           coded letter.
         - Multiple prefixes are live at once. A selection mixing conventions versions up in
@@ -64,6 +64,9 @@ Updates:
           the version" restores the original matching for names like "SHOWv01".
         - The prefix suggested for a skipped name is never a month name, so a date is never one
           click away from being renamed.
+        - Thumbnails are refreshed after a rename, so the new names show up on the Desktop
+          without having to click on it.
+        - Minimum Flame version is now 2022.
         - Fixed: names containing more than one version token raised a ValueError.
         - Fixed: names containing more than one version token had every token renumbered.
           Only the last token is changed now.
@@ -477,6 +480,26 @@ def show_in_flame(message, kind="error"):
         flame.messages.show_in_console("%s: %s" % (SCRIPT_NAME, message), kind, 8)
     except Exception:
         pass
+
+
+def refresh_flame_ui():
+    """
+    Refresh the Flame UI.
+
+    Necessary after changing attributes to have the changes show up on the Desktop. Otherwise
+    the script runs, but the new names are not shown on the thumbnails until you click on the
+    UI. A failure here never matters enough to undo a rename, so it is reported and ignored.
+    """
+
+    try:
+        import flame
+    except ImportError:
+        return
+
+    try:
+        flame.execute_shortcut("Refresh Thumbnails")
+    except Exception as error:
+        print("%s: could not refresh the Flame UI (%s)" % (SCRIPT_NAME, error))
 
 
 # -------------------------------------
@@ -1058,7 +1081,8 @@ class MismatchWindow(FlameDialog):
 
 def apply_version_up(items, settings):
     """
-    Version up every item that has a known version.
+    Version up every item that has a known version, then refresh the Flame UI so the new
+    names show up on the Desktop.
 
     Returns (versioned_count, skipped_items).
     """
@@ -1080,6 +1104,9 @@ def apply_version_up(items, settings):
         print("%s   ->   %s      [%s -> %s]" % (name, new_name, old_token, new_token))
         item.name = new_name
         versioned += 1
+
+    if versioned:
+        refresh_flame_ui()
 
     return versioned, skipped
 
@@ -1224,12 +1251,12 @@ def get_media_panel_custom_ui_actions():
                     'name': action_name,
                     'isVisible': scope_not_desktop,
                     'execute': version_upper,
-                    'minimumVersion': '2020'
+                    'minimumVersion': '2022'
                 },
                 {
                     'name': '%s Preferences' % action_name,
                     'execute': preferences_from_menu,
-                    'minimumVersion': '2020'
+                    'minimumVersion': '2022'
                 }
             ]
         }
@@ -1245,7 +1272,7 @@ def get_main_menu_custom_ui_actions():
                 {
                     'name': 'Preferences',
                     'execute': preferences_from_menu,
-                    'minimumVersion': '2020'
+                    'minimumVersion': '2022'
                 }
             ]
         }
