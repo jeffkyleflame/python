@@ -1,10 +1,10 @@
 # Version Upper
 
 **Script Version:** 3.0.0
-**Flame Version:** 2020
+**Flame Version:** 2022
 **Written by:** John Geehreng
 **Creation Date:** 06.06.20
-**Update Date:** 07.24.26
+**Update Date:** 10.20.26
 
 ## Description
 
@@ -109,7 +109,7 @@ version_upper/config/config.json
 
 ## Updates
 
-### v3.0.0 [07.24.26]
+### v3.0.0 [10.20.26]
 - Added a Preferences window. The version prefix is now a setting, not a hard coded letter.
 - Multiple prefixes live at once — a mixed selection versions up in one pass.
 - Padding is read from each name and kept.
@@ -118,6 +118,9 @@ version_upper/config/config.json
   Untick **Require a separator before the version** to get the original matching back.
 - The prefix a skipped name suggests is never a month, so a date is never one click from being
   renamed.
+- Thumbnails are refreshed after a rename, so the new names show up on the Desktop without
+  having to click on it.
+- Minimum Flame version is now 2022.
 - Fixed: more than one version token in a name raised a `ValueError` and stopped the run.
 - Fixed: more than one version token had every token renumbered. Only the last one changes now.
 
